@@ -57,7 +57,6 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
 fun CalculatorLayout(modifier: Modifier) {
     Column(modifier = modifier) {
@@ -211,7 +210,6 @@ fun CalculatorLayout(modifier: Modifier) {
         }
     }
 }
-
 
 @Composable
 fun CalculatorButton(
