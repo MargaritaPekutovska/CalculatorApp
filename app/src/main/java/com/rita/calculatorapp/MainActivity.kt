@@ -29,9 +29,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.notkamui.keval.keval
 import com.rita.calculatorapp.ui.theme.CalculatorAppTheme
 import com.rita.calculatorapp.ui.theme.LightGray
 import com.rita.calculatorapp.ui.theme.Orange
+
 
 class MainActivity : ComponentActivity() {
 
@@ -71,12 +73,10 @@ fun CalculatorLayout(modifier: Modifier) {
             val charsNumber = inputText.value.length
             if (charsNumber >= 15) {
                 showToast(context)
-            }
-            else {
+            } else {
                 if (charsNumber >= 8) {
                     inputTextFontSize.value = 40
-                }
-                else {
+                } else {
                     inputTextFontSize.value = 70
 
                 }
@@ -203,7 +203,10 @@ fun CalculatorLayout(modifier: Modifier) {
             )
             CalculatorButton(
                 buttonText = "=",
-                onClick = {},
+                onClick = {
+                    val calculationResult = calculateResult(inputText.value)
+                    inputText.value = calculationResult.toString()
+                },
                 modifier = Modifier.weight(1f),
                 containerColor = Orange
             )
@@ -247,8 +250,13 @@ fun combineValues(
     }
 }
 
-private fun showToast (context: Context) {
+private fun showToast(context: Context) {
     Toast.makeText(context, "Can't enter more than 15 digits", Toast.LENGTH_SHORT).show()
+}
+
+private fun calculateResult(textInput: String): Double {
+    val calculationResult = textInput.keval()
+    return calculationResult
 }
 
 @Preview(showBackground = true)
