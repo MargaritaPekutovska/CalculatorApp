@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CalculatorApp</string>
+    <string name="max_digits_number_exceeded"> Es können nicht mehr als 15 Ziffern eingegeben werden </string>
+</resources>
