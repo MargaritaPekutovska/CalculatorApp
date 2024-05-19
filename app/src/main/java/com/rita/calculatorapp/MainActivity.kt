@@ -251,7 +251,11 @@ fun combineValues(
 }
 
 private fun showToast(context: Context) {
-    Toast.makeText(context, "Can't enter more than 15 digits", Toast.LENGTH_SHORT).show()
+    Toast.makeText(
+        context,
+        context.getString(R.string.max_digits_number_exceeded),
+        Toast.LENGTH_SHORT
+    ).show()
 }
 
 private fun calculateResult(textInput: String): Double {
