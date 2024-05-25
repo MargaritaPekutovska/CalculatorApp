@@ -72,7 +72,7 @@ fun CalculatorLayout(modifier: Modifier) {
         val onButtonClick: (String) -> Unit = { buttonValue ->
             val charsNumber = inputText.value.length
             if (charsNumber >= 15) {
-                showToast(context)
+                context.showToast()
             } else {
                 if (charsNumber >= 8) {
                     inputTextFontSize.value = 40
@@ -248,14 +248,6 @@ fun combineValues(
     } else {
         inputTextValue + newValue
     }
-}
-
-private fun showToast(context: Context) {
-    Toast.makeText(
-        context,
-        context.getString(R.string.max_digits_number_exceeded),
-        Toast.LENGTH_SHORT
-    ).show()
 }
 
 private fun calculateResult(textInput: String): Double {
